@@ -3,13 +3,14 @@ from primes import get_primes
 from partition import get_partitions
 from functools import reduce
 
-def get_prod_list():
+def get_prod_list(num):
     primes = get_primes(1000)
     possible_prod_dict = dict()
     non_prod_dict = dict()
-    for a in range(1,10):
-        for b in range(a,10):
+    for a in range(1,num):
+        for b in range(a,num):
             prod = a*b
+            print("calculating product pairs (", a, b,")", end = "\r")
             if a*b == 1:
                 possible_prod_dict[1] = {(1,1)}
                 continue
@@ -32,4 +33,4 @@ def get_prod_list():
 
 
 if __name__ == "__main__":
-    print(get_prod_list())
+    print(get_prod_list(10))
